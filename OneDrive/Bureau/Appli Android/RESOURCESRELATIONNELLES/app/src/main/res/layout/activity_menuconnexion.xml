@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menuconnexion">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/image_con"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anton"
+                android:text="Connectez-vous !"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+
+
+        <EditText
+            android:id="@+id/login_connexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="login"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/password_connexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="mot de passe"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/button_connexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Connexion"
+            android:text="Connexion" />
+
+        <TextView
+            android:id="@+id/text_redirect_inscription"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="S'inscrire ?" />
+
+        <TextView
+            android:id="@+id/text_redirect_connexion_admin"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:text="Espace admin ?" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_accueil"
+        android:title="accueil"
+        android:icon="@drawable/accueil_icon"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Profil">
+        <menu>
+
+            <item
+                android:id="@+id/nav_connexion"
+                android:title="Connexion"
+                android:icon="@drawable/login_icon"/>
+            <item
+                android:id="@+id/nav_profil"
+                android:title="Profil"
+                android:icon="@drawable/login_icon"/>
+            <item
+                android:id="@+id/nav_deconnexion"
+                android:title="Déconnexion"/>
+
+        </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Ressources">
+        <menu>
+        <item
+            android:id="@+id/nav_ressources"
+            android:title="Afficher ressources"
+            android:icon="@drawable/ressources_icon"/>
+            <item
+                android:id="@+id/filtre_ressources"
+                android:title="Filtrer ressources"
+                />
+            <item
+                android:id="@+id/favoris_ressources"
+                android:title="Ressources favorites"
+                />
+            <item
+                android:id="@+id/creer_ressource"
+                android:title="Créer une ressource"
+                />
+            <item
+                android:id="@+id/supprimer_ressource"
+                android:title="Supprimer une ressource"
+                />
+            <item
+                android:id="@+id/approbation_ressources"
+                android:title="Approuver une  ressource"
+                />
+            <item
+                android:id="@+id/creer_categorie_ressources"
+                android:title="Créer une catégorie de ressources"
+                />
+            <item
+                android:id="@+id/supprimer__categorie_ressources"
+                android:title="Supprimer une catégorie de ressources"
+                />
+            <item
+                android:id="@+id/gestion_des_comptes"
+                android:title="Désactiver/Réactiver un compte"
+                />
+
+        </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/statistiques"
+            android:title="Statistiques">
+        <menu>
+            <item
+                android:id="@+id/nav_statistiques"
+                android:title="Tableau de bord "/>
+            <item
+                android:id="@+id/filtre_statistiques"
+                android:title="Filtrer statistiques"/>
+            <item
+                android:id="@+id/exporter_statistiques"
+                android:title="exporter statistiques"/>
+
+        </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/apropos"
+            android:title="A propos" />
+    </group>
+
+
+</menu>
