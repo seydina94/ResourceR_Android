@@ -81,22 +81,23 @@ public class menucitoyenconnecte extends AppCompatActivity implements Navigation
 
             //Redirection Accueil
             case R.id.nav_accueil:
-                Intent i = new Intent(menucitoyenconnecte.this,MainActivity.class);
+                Intent i = new Intent(menucitoyenconnecte.this,menucitoyenconnecte.class);
                 startActivity(i);
                 break;
 
             //Redirection page "Ressources"
             case R.id.nav_ressources :
-                Intent i1 = new Intent(menucitoyenconnecte.this,Ressources.class);
+                Intent i1 = new Intent(menucitoyenconnecte.this,Ressourcescitoyenconnecte.class);
                 startActivity(i1);
                 break;
 
-            // Redirection Connexion
-            case R.id.nav_connexion:
-                Intent i3 = new Intent(menucitoyenconnecte.this,menuconnexion.class);
-                startActivity(i3);
+            //Redirection page "Favoris"
+            case R.id.favoris_ressources :
+                Intent i2 = new Intent(menucitoyenconnecte.this,Favoris.class);
+                startActivity(i2);
                 break;
 
+            // Redirection Deconnexion
             case R.id.nav_deconnexion:
                 Intent i4 = new Intent(menucitoyenconnecte.this,MainActivity.class);
                 startActivity(i4);

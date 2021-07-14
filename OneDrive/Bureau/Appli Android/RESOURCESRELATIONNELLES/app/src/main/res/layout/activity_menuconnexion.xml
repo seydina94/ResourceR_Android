@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="-16dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="56dp">
 
 
         <LinearLayout
@@ -29,8 +29,6 @@
                 android:text="Connectez-vous !"
                 android:textSize="24sp" />
         </LinearLayout>
-
-
 
         <EditText
             android:id="@+id/login_connexion"

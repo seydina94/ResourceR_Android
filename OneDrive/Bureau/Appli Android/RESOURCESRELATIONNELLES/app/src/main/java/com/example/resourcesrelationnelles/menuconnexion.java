@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -32,21 +35,27 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class menuconnexion extends AppCompatActivity /*implements*/ /*View.OnClickListener*//*LoaderManager.LoaderCallbacks<Cursor>*/ {
+public class menuconnexion extends AppCompatActivity implements View.OnClickListener/*LoaderCallbacks<Cursor>*/ {
 
-    /*String login;
-    String password;*/
-    private   UserLoginTask mAuthTask = null;
-    EditText login_connexion;
-    EditText password_connexion;
-    Button btn_cnx;
-    TextView txt_ins;
-    TextView txt_con_adm;
 
+    /*private static final int REQUEST_READ_CONTACTS =0;*/
+
+   /* private   UserLoginTask mAuthTask = null;*/
+    private EditText login_connexion;
+    private EditText password_connexion;
+    private Button btn_cnx;
+    private TextView txt_ins;
+    private TextView txt_con_adm;
+
+    /* Ligne à dé-commenter
+    private static String ENDPOINT = "http://localhost:8080/authentication";*/
+
+
+    /* Code de la 1ere video
     Retrofit.Builder builder = new Retrofit.Builder()
         .baseUrl("http://192.168.0.15:8080/authentication")
             .addConverterFactory(GsonConverterFactory.create());
-    Retrofit retrofit = builder.build();
+    Retrofit retrofit = builder.build();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +66,110 @@ public class menuconnexion extends AppCompatActivity /*implements*/ /*View.OnCli
         // On récupère les éléments de la vue à partir de leur identifiant.
         login_connexion = (EditText) findViewById(R.id.login_connexion);
         password_connexion = (EditText) findViewById(R.id.password_connexion);
+        /*password_connexion.setOnEditorActionListener({
+                if (id==R.id.login_connexion || id == EditorInfo.IME_NULL) {
+                    attemptLogin();
+                    return true;
+                }
+                return false;
+
+        });*/
         btn_cnx = (Button) findViewById(R.id.button_connexion);
         txt_ins = (TextView) findViewById(R.id.text_redirect_inscription);
         txt_con_adm = (TextView) findViewById(R.id.text_redirect_connexion_admin);
 
+
         btn_cnx.setOnClickListener(this);
         txt_ins.setOnClickListener(this);
         txt_con_adm.setOnClickListener(this);
+    }/* Ne pas oublier d'enlever cette accolade
+    fermante en dé-commentant le code qui suit !
 
+        /* Code à décommenter jusqu'à la ligne 148
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ENDPOINT)
+                .build();
 
+        final UserClient service = retrofit.create(UserClient.class);
+
+        btn_cnx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean error = false;
+
+                // Si l'utilisateur ne renseigne pas de Login
+                if(TextUtils.isEmpty(getLogin())){
+                    error = true;
+                    Toast.makeText(menuconnexion.this, "Veuillez renseigner votre identifiant", Toast.LENGTH_LONG).show();
+                }
+                if(TextUtils.isEmpty(getPassword())){
+                    error = true;
+                    Toast.makeText(menuconnexion.this, "Veuillez renseigner votre mot de passe", Toast.LENGTH_LONG).show();
+                }
+                // S'il n'y a pas d'erreur on fait notre requête
+                if(!error){
+                    service.login(getLogin(), getPassword(), new Callback<Login>(){
+                        @Override
+                        public void onResponse(Call<Login> call, Response<Login> response) {
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Login> call, Throwable t) {
+
+                        }
+
+                        @Override
+                        public void success(Login login, Response response){
+                            Toast.makeText(menuconnexion.this, login.message, Toast.LENGTH_LONG).show();
+                            if (login.success ==1){
+                                Intent intent = new Intent(menuconnexion.this, menucitoyenconnecte.class);
+                                startActivity(intent);
+                            }
+                        }
+                        @Override
+                        public void failure(RetrofitError error){}
+                    });
+
+                }
+            }
+        });
     }
 
+    private String getPassword(){
+        return password_connexion.getText().toString().trim();
+    }
+    private String getLogin(){
+        return login_connexion.getText().toString().trim();
+    }
+
+    public class  Login{
+        public String message;
+        public int success;
+    }*/
+
+
+
+    /*private void populateAutoComplete(){
+        if (!mayRequestContacts()){
+            return;
+        }
+        getLoaderManager().initLoader(0,null,this);
+    }
+    private boolean mayRequestContacts(){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            return true;
+        }
+        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED){
+
+        }
+    }*/
 
     /**
      *Represents an asynchronous login/registration task used to authenticate the user
      *
      */
-    public class UserLoginTask extends  AsyncTask<Void, Void, Boolean>{
+    /*public class UserLoginTask extends  AsyncTask<Void, Void, Boolean>{
 
         private final String mLogin;
         private final String mPassword;
@@ -112,8 +208,9 @@ public class menuconnexion extends AppCompatActivity /*implements*/ /*View.OnCli
         protected void onPostExecute(final Boolean success){
             mAuthTask = null;
             if(success){
-                Intent i = new Intent(this, menucitoyenconnecte.class);
+                /*Intent i = new Intent(this, menucitoyenconnecte.class);
                 startActivity(i);
+                Toast.makeText(menuconnexion.this,"Connexion réussie !",Toast.LENGTH_SHORT).show();
             }
             else{
                 password_connexion.setError("Login ou mot de passe incorrect !");
@@ -128,9 +225,7 @@ public class menuconnexion extends AppCompatActivity /*implements*/ /*View.OnCli
         }
 
 
-    }
-
-
+    }*/
 
 
 
@@ -208,7 +303,7 @@ public class menuconnexion extends AppCompatActivity /*implements*/ /*View.OnCli
 
 
 
-    /*@Override
+    @Override
     public void onClick(View v){
 
 
@@ -228,7 +323,8 @@ public class menuconnexion extends AppCompatActivity /*implements*/ /*View.OnCli
                 break;
 
         }
-    }*/
+
+    }
 
 
 
